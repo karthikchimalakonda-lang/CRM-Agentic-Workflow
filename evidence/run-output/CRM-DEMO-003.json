@@ -1,0 +1,168 @@
+{
+  "status": "completed_with_review",
+  "correlation_id": "CRM-DEMO-003",
+  "channel": "chat",
+  "requested_by": "sales-rep-07",
+  "reference_date": "2026-10-05",
+  "understanding": {
+    "planner": "rules",
+    "intents": [
+      "quote"
+    ],
+    "entities": {
+      "company": "Example Manufacturing Co",
+      "contact_name": null,
+      "email": null,
+      "phone": null,
+      "budget": null,
+      "products": [
+        {
+          "product_code": "SVC-SEAT",
+          "mention": "120 Service Cloud seats",
+          "quantity": 120
+        },
+        {
+          "product_code": "ONB-PKG",
+          "mention": "an onboarding package",
+          "quantity": 1
+        },
+        {
+          "product_code": "INT-HUB",
+          "mention": "1 Integration Hub",
+          "quantity": 1
+        }
+      ],
+      "discount_pct": 22.0,
+      "timeline_days": 45,
+      "source": "chat",
+      "urgent": false,
+      "issue_description": null
+    },
+    "confidence": 0.71
+  },
+  "plan": [
+    {
+      "step": "opportunity",
+      "depends_on": null
+    },
+    {
+      "step": "quote",
+      "depends_on": "opportunity"
+    }
+  ],
+  "results": {
+    "opportunity": {
+      "agent": "opportunity",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "OPTY-415C8CEE",
+      "stage": "Proposal",
+      "win_probability_pct": 60,
+      "review_flags": [],
+      "record": {
+        "name": "Example Manufacturing Co - SVC-SEAT, ONB-PKG, INT-HUB",
+        "account_name": "Example Manufacturing Co",
+        "primary_contact": null,
+        "source_lead_id": null,
+        "stage": "Proposal",
+        "win_probability_pct": 60,
+        "amount": null,
+        "currency": "USD",
+        "amount_source": "quote",
+        "weighted_amount": null,
+        "expected_close_date": "2026-11-19",
+        "product_codes": [
+          "SVC-SEAT",
+          "ONB-PKG",
+          "INT-HUB"
+        ],
+        "external_reference": "CRM-DEMO-003"
+      }
+    },
+    "quote": {
+      "agent": "quote",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "QUOTE-1F06C578",
+      "quote_status": "Pending Approval",
+      "grand_total": "102772.80",
+      "approval_required": true,
+      "unresolved_lines": [],
+      "review_flags": [
+        "requested discount 22.0% exceeds 15% auto-approval limit"
+      ],
+      "record": {
+        "opportunity_id": "OPTY-415C8CEE",
+        "account_name": "Example Manufacturing Co",
+        "contact_name": null,
+        "currency": "USD",
+        "lines": [
+          {
+            "line": 1,
+            "product_code": "SVC-SEAT",
+            "description": "Service Cloud Seat",
+            "unit": "seat / year",
+            "quantity": 120,
+            "unit_price": "850.00",
+            "discount_pct": "22.0",
+            "net_amount": "79560.00"
+          },
+          {
+            "line": 2,
+            "product_code": "ONB-PKG",
+            "description": "Onboarding Package",
+            "unit": "package",
+            "quantity": 1,
+            "unit_price": "5000.00",
+            "discount_pct": "22.0",
+            "net_amount": "3900.00"
+          },
+          {
+            "line": 3,
+            "product_code": "INT-HUB",
+            "description": "Integration Hub",
+            "unit": "instance / year",
+            "quantity": 1,
+            "unit_price": "15000.00",
+            "discount_pct": "22.0",
+            "net_amount": "11700.00"
+          }
+        ],
+        "list_total": "122000.00",
+        "discount_total": "26840.00",
+        "subtotal": "95160.00",
+        "tax_rate": "0.08",
+        "tax": "7612.80",
+        "grand_total": "102772.80",
+        "valid_until": "2026-11-04",
+        "status": "Pending Approval",
+        "external_reference": "CRM-DEMO-003"
+      }
+    }
+  },
+  "review_items": [
+    "quote: requested discount 22.0% exceeds 15% auto-approval limit"
+  ],
+  "audit": [
+    {
+      "event": "planned",
+      "planner": "rules",
+      "intents": [
+        "quote"
+      ],
+      "confidence": 0.71
+    },
+    {
+      "event": "dispatched",
+      "agent": "opportunity",
+      "status": "created",
+      "record_id": "OPTY-415C8CEE"
+    },
+    {
+      "event": "dispatched",
+      "agent": "quote",
+      "status": "created",
+      "record_id": "QUOTE-1F06C578"
+    }
+  ]
+}

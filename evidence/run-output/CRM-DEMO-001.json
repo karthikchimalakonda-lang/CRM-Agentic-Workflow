@@ -1,0 +1,182 @@
+{
+  "status": "completed",
+  "correlation_id": "CRM-DEMO-001",
+  "channel": "chat",
+  "requested_by": "sales-rep-01",
+  "reference_date": "2026-10-05",
+  "understanding": {
+    "planner": "rules",
+    "intents": [
+      "lead",
+      "opportunity",
+      "quote"
+    ],
+    "entities": {
+      "company": "Example Retail Ltd",
+      "contact_name": "Priya Raman",
+      "email": "priya.raman@example.com",
+      "phone": null,
+      "budget": 75000.0,
+      "products": [
+        {
+          "product_code": "ANL-PRO",
+          "mention": "60 Analytics Pro",
+          "quantity": 60
+        }
+      ],
+      "discount_pct": 8.0,
+      "timeline_days": 90,
+      "source": "chat",
+      "urgent": false,
+      "issue_description": null
+    },
+    "confidence": 0.95
+  },
+  "plan": [
+    {
+      "step": "lead",
+      "depends_on": null
+    },
+    {
+      "step": "opportunity",
+      "depends_on": "lead"
+    },
+    {
+      "step": "quote",
+      "depends_on": "opportunity"
+    }
+  ],
+  "results": {
+    "lead": {
+      "agent": "lead",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "LEAD-0B718DB9",
+      "score": 88,
+      "score_reasons": [
+        "budget >= 25k",
+        "timeline 90 days",
+        "valid email",
+        "company identified",
+        "product interest",
+        "source chat"
+      ],
+      "qualification": "Sales Qualified",
+      "review_flags": [],
+      "record": {
+        "name": "Example Retail Ltd - inbound interest",
+        "company": "Example Retail Ltd",
+        "contact": {
+          "name": "Priya Raman",
+          "email": "priya.raman@example.com",
+          "phone": null
+        },
+        "source": "chat",
+        "estimated_budget": 75000.0,
+        "timeline_days": 90,
+        "products_of_interest": [
+          "ANL-PRO"
+        ],
+        "score": 88,
+        "qualification": "Sales Qualified",
+        "dedupe_key": "54d24a9428a94dac",
+        "external_reference": "CRM-DEMO-001"
+      }
+    },
+    "opportunity": {
+      "agent": "opportunity",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "OPTY-45228BE6",
+      "stage": "Proposal",
+      "win_probability_pct": 70,
+      "review_flags": [],
+      "record": {
+        "name": "Example Retail Ltd - ANL-PRO",
+        "account_name": "Example Retail Ltd",
+        "primary_contact": "Priya Raman",
+        "source_lead_id": "LEAD-0B718DB9",
+        "stage": "Proposal",
+        "win_probability_pct": 70,
+        "amount": 75000.0,
+        "currency": "USD",
+        "amount_source": "request",
+        "weighted_amount": 52500.0,
+        "expected_close_date": "2027-01-03",
+        "product_codes": [
+          "ANL-PRO"
+        ],
+        "external_reference": "CRM-DEMO-001"
+      }
+    },
+    "quote": {
+      "agent": "quote",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "QUOTE-27B0FD44",
+      "quote_status": "Ready to Send",
+      "grand_total": "71539.20",
+      "approval_required": false,
+      "unresolved_lines": [],
+      "review_flags": [],
+      "record": {
+        "opportunity_id": "OPTY-45228BE6",
+        "account_name": "Example Retail Ltd",
+        "contact_name": "Priya Raman",
+        "currency": "USD",
+        "lines": [
+          {
+            "line": 1,
+            "product_code": "ANL-PRO",
+            "description": "Analytics Pro",
+            "unit": "license / year",
+            "quantity": 60,
+            "unit_price": "1200.00",
+            "discount_pct": "8.0",
+            "net_amount": "66240.00"
+          }
+        ],
+        "list_total": "72000.00",
+        "discount_total": "5760.00",
+        "subtotal": "66240.00",
+        "tax_rate": "0.08",
+        "tax": "5299.20",
+        "grand_total": "71539.20",
+        "valid_until": "2026-11-04",
+        "status": "Ready to Send",
+        "external_reference": "CRM-DEMO-001"
+      }
+    }
+  },
+  "review_items": [],
+  "audit": [
+    {
+      "event": "planned",
+      "planner": "rules",
+      "intents": [
+        "lead",
+        "opportunity",
+        "quote"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "event": "dispatched",
+      "agent": "lead",
+      "status": "created",
+      "record_id": "LEAD-0B718DB9"
+    },
+    {
+      "event": "dispatched",
+      "agent": "opportunity",
+      "status": "created",
+      "record_id": "OPTY-45228BE6"
+    },
+    {
+      "event": "dispatched",
+      "agent": "quote",
+      "status": "created",
+      "record_id": "QUOTE-27B0FD44"
+    }
+  ]
+}

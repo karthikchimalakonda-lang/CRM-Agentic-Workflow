@@ -1,0 +1,84 @@
+{
+  "status": "completed_with_review",
+  "correlation_id": "CRM-DEMO-002",
+  "channel": "email",
+  "requested_by": "service-agent-04",
+  "reference_date": "2026-10-05",
+  "understanding": {
+    "planner": "rules",
+    "intents": [
+      "case"
+    ],
+    "entities": {
+      "company": "Sample Health Inc",
+      "contact_name": "Alex Morgan",
+      "email": "alex.morgan@example.org",
+      "phone": null,
+      "budget": null,
+      "products": [],
+      "discount_pct": null,
+      "timeline_days": null,
+      "source": "email",
+      "urgent": true,
+      "issue_description": "Customer Sample Health Inc reports the reporting dashboard is down for all users since this morning."
+    },
+    "confidence": 0.82
+  },
+  "plan": [
+    {
+      "step": "case",
+      "depends_on": null
+    }
+  ],
+  "results": {
+    "case": {
+      "agent": "case",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "CASE-71209856",
+      "priority": "P1",
+      "category": "Technical",
+      "queue": "technical-support-l2",
+      "response_due_at": "2026-10-05T13:00:00+00:00",
+      "review_flags": [
+        "P1 case - notify duty manager"
+      ],
+      "record": {
+        "subject": "Customer Sample Health Inc reports the reporting dashboard is down for all us...",
+        "description": "Customer Sample Health Inc reports the reporting dashboard is down for all users since this morning.",
+        "account_name": "Sample Health Inc",
+        "contact": {
+          "name": "Alex Morgan",
+          "email": "alex.morgan@example.org"
+        },
+        "channel": "email",
+        "category": "Technical",
+        "priority": "P1",
+        "sentiment": "neutral",
+        "queue": "technical-support-l2",
+        "opened_at": "2026-10-05T09:00:00+00:00",
+        "response_due_at": "2026-10-05T13:00:00+00:00",
+        "external_reference": "CRM-DEMO-002"
+      }
+    }
+  },
+  "review_items": [
+    "case: P1 case - notify duty manager"
+  ],
+  "audit": [
+    {
+      "event": "planned",
+      "planner": "rules",
+      "intents": [
+        "case"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "event": "dispatched",
+      "agent": "case",
+      "status": "created",
+      "record_id": "CASE-71209856"
+    }
+  ]
+}

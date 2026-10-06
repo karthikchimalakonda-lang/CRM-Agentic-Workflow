@@ -1,0 +1,219 @@
+{
+  "status": "completed",
+  "correlation_id": "CRM-DEMO-004",
+  "channel": "voice-transcript",
+  "requested_by": "sales-rep-02",
+  "reference_date": "2026-10-05",
+  "understanding": {
+    "planner": "rules",
+    "intents": [
+      "lead",
+      "quote",
+      "case"
+    ],
+    "entities": {
+      "company": "Sample Logistics Group",
+      "contact_name": "Daniel Okafor",
+      "email": "daniel.okafor@example.net",
+      "phone": null,
+      "budget": null,
+      "products": [
+        {
+          "product_code": "ANL-PRO",
+          "mention": "25 Analytics Pro",
+          "quantity": 25
+        }
+      ],
+      "discount_pct": null,
+      "timeline_days": 60,
+      "source": "partner",
+      "urgent": false,
+      "issue_description": "He also mentioned their last billing invoice is wrong, please log a case."
+    },
+    "confidence": 0.95
+  },
+  "plan": [
+    {
+      "step": "lead",
+      "depends_on": null
+    },
+    {
+      "step": "opportunity",
+      "depends_on": "lead"
+    },
+    {
+      "step": "quote",
+      "depends_on": "opportunity"
+    },
+    {
+      "step": "case",
+      "depends_on": null
+    }
+  ],
+  "results": {
+    "lead": {
+      "agent": "lead",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "LEAD-313AF695",
+      "score": 75,
+      "score_reasons": [
+        "timeline 60 days",
+        "valid email",
+        "company identified",
+        "product interest",
+        "source partner"
+      ],
+      "qualification": "Sales Qualified",
+      "review_flags": [],
+      "record": {
+        "name": "Sample Logistics Group - inbound interest",
+        "company": "Sample Logistics Group",
+        "contact": {
+          "name": "Daniel Okafor",
+          "email": "daniel.okafor@example.net",
+          "phone": null
+        },
+        "source": "partner",
+        "estimated_budget": null,
+        "timeline_days": 60,
+        "products_of_interest": [
+          "ANL-PRO"
+        ],
+        "score": 75,
+        "qualification": "Sales Qualified",
+        "dedupe_key": "ec9d2f3b7deb87cf",
+        "external_reference": "CRM-DEMO-004"
+      }
+    },
+    "opportunity": {
+      "agent": "opportunity",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "OPTY-98C796DE",
+      "stage": "Proposal",
+      "win_probability_pct": 75,
+      "review_flags": [],
+      "record": {
+        "name": "Sample Logistics Group - ANL-PRO",
+        "account_name": "Sample Logistics Group",
+        "primary_contact": "Daniel Okafor",
+        "source_lead_id": "LEAD-313AF695",
+        "stage": "Proposal",
+        "win_probability_pct": 75,
+        "amount": null,
+        "currency": "USD",
+        "amount_source": "quote",
+        "weighted_amount": null,
+        "expected_close_date": "2026-12-04",
+        "product_codes": [
+          "ANL-PRO"
+        ],
+        "external_reference": "CRM-DEMO-004"
+      }
+    },
+    "quote": {
+      "agent": "quote",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "QUOTE-715EA3BC",
+      "quote_status": "Ready to Send",
+      "grand_total": "32400.00",
+      "approval_required": false,
+      "unresolved_lines": [],
+      "review_flags": [],
+      "record": {
+        "opportunity_id": "OPTY-98C796DE",
+        "account_name": "Sample Logistics Group",
+        "contact_name": "Daniel Okafor",
+        "currency": "USD",
+        "lines": [
+          {
+            "line": 1,
+            "product_code": "ANL-PRO",
+            "description": "Analytics Pro",
+            "unit": "license / year",
+            "quantity": 25,
+            "unit_price": "1200.00",
+            "discount_pct": "0",
+            "net_amount": "30000.00"
+          }
+        ],
+        "list_total": "30000.00",
+        "discount_total": "0.00",
+        "subtotal": "30000.00",
+        "tax_rate": "0.08",
+        "tax": "2400.00",
+        "grand_total": "32400.00",
+        "valid_until": "2026-11-04",
+        "status": "Ready to Send",
+        "external_reference": "CRM-DEMO-004"
+      }
+    },
+    "case": {
+      "agent": "case",
+      "status": "created",
+      "mode": "dry-run",
+      "record_id": "CASE-4DA71D19",
+      "priority": "P3",
+      "category": "Billing",
+      "queue": "billing-support",
+      "response_due_at": "2026-10-06T09:00:00+00:00",
+      "review_flags": [],
+      "record": {
+        "subject": "He also mentioned their last billing invoice is wrong, please log a case.",
+        "description": "He also mentioned their last billing invoice is wrong, please log a case.",
+        "account_name": "Sample Logistics Group",
+        "contact": {
+          "name": "Daniel Okafor",
+          "email": "daniel.okafor@example.net"
+        },
+        "channel": "voice-transcript",
+        "category": "Billing",
+        "priority": "P3",
+        "sentiment": "concerned",
+        "queue": "billing-support",
+        "opened_at": "2026-10-05T09:00:00+00:00",
+        "response_due_at": "2026-10-06T09:00:00+00:00",
+        "external_reference": "CRM-DEMO-004"
+      }
+    }
+  },
+  "review_items": [],
+  "audit": [
+    {
+      "event": "planned",
+      "planner": "rules",
+      "intents": [
+        "lead",
+        "quote",
+        "case"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "event": "dispatched",
+      "agent": "lead",
+      "status": "created",
+      "record_id": "LEAD-313AF695"
+    },
+    {
+      "event": "dispatched",
+      "agent": "opportunity",
+      "status": "created",
+      "record_id": "OPTY-98C796DE"
+    },
+    {
+      "event": "dispatched",
+      "agent": "quote",
+      "status": "created",
+      "record_id": "QUOTE-715EA3BC"
+    },
+    {
+      "event": "dispatched",
+      "agent": "case",
+      "status": "created",
+      "record_id": "CASE-4DA71D19"
+    }
+  ]
+}

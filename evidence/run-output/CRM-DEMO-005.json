@@ -1,0 +1,35 @@
+{
+  "status": "needs_human_review",
+  "reason": "No confident CRM action could be planned",
+  "correlation_id": "CRM-DEMO-005",
+  "channel": "chat",
+  "requested_by": "sales-rep-03",
+  "reference_date": "2026-10-05",
+  "understanding": {
+    "planner": "rules",
+    "intents": [],
+    "entities": {
+      "company": null,
+      "contact_name": null,
+      "email": null,
+      "phone": null,
+      "budget": null,
+      "products": [],
+      "discount_pct": null,
+      "timeline_days": null,
+      "source": "chat",
+      "urgent": false,
+      "issue_description": null
+    },
+    "confidence": 0.0
+  },
+  "results": {},
+  "audit": [
+    {
+      "event": "planned",
+      "planner": "rules",
+      "intents": [],
+      "confidence": 0.0
+    }
+  ]
+}

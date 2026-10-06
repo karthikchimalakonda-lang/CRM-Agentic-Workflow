@@ -1,0 +1,37 @@
+[
+  {
+    "correlation_id": "CRM-DEMO-001",
+    "channel": "chat",
+    "requested_by": "sales-rep-01",
+    "reference_date": "2026-10-05",
+    "request_text": "New lead: Priya Raman from Example Retail Ltd (priya.raman@example.com) is interested in 60 Analytics Pro licenses. Budget is about $75,000 and they want to go live next quarter. Create the opportunity and send a quote with 8% discount."
+  },
+  {
+    "correlation_id": "CRM-DEMO-002",
+    "channel": "email",
+    "requested_by": "service-agent-04",
+    "reference_date": "2026-10-05",
+    "request_text": "Customer Sample Health Inc reports the reporting dashboard is down for all users since this morning. Contact Alex Morgan, alex.morgan@example.org. Please open a case, this is urgent."
+  },
+  {
+    "correlation_id": "CRM-DEMO-003",
+    "channel": "chat",
+    "requested_by": "sales-rep-07",
+    "reference_date": "2026-10-05",
+    "request_text": "Prepare a quote for Example Manufacturing Co: 120 Service Cloud seats, 1 Integration Hub and an onboarding package, 22% discount, decision expected in 45 days."
+  },
+  {
+    "correlation_id": "CRM-DEMO-004",
+    "channel": "voice-transcript",
+    "requested_by": "sales-rep-02",
+    "reference_date": "2026-10-05",
+    "request_text": "Lead from the partner event: Daniel Okafor at Sample Logistics Group, daniel.okafor@example.net, wants pricing for 25 Analytics Pro licenses within 2 months. He also mentioned their last billing invoice is wrong, please log a case."
+  },
+  {
+    "correlation_id": "CRM-DEMO-005",
+    "channel": "chat",
+    "requested_by": "sales-rep-03",
+    "reference_date": "2026-10-05",
+    "request_text": "Can you check on the thing we discussed yesterday?"
+  }
+]

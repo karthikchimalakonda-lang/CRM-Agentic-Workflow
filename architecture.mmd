@@ -1,0 +1,26 @@
+flowchart LR
+    U[Sales or service user\nchat, email, voice transcript] --> GW[OCI API Gateway]
+    GW --> SUP[CRM Supervisor Agent\nOCI Function]
+    SUP -. plan request .-> GAI[OCI Generative AI\nintent and entity extraction]
+    SUP --> RULES[Rule-based NLU fallback]
+    SUP --> PLAN{Dependency-aware\naction plan}
+
+    PLAN --> LEAD[Lead Creation Agent\nOCI Function]
+    LEAD -- lead_id, score --> OPP[Opportunity Creation Agent\nOCI Function]
+    OPP -- opportunity_id --> QUOTE[Quote Generation Agent\nOCI Function]
+    PLAN --> CASE[Case Creation Agent\nOCI Function]
+
+    LEAD --> CRM[(CRM REST API)]
+    OPP --> CRM
+    QUOTE --> CRM
+    CASE --> CRM
+
+    VAULT[OCI Vault\nCRM API secret] -.-> LEAD
+    VAULT -.-> OPP
+    VAULT -.-> QUOTE
+    VAULT -.-> CASE
+
+    QUOTE -- discount above limit --> REVIEW[Human approval queue]
+    SUP -- low confidence --> REVIEW
+    SUP --> RESP[Consolidated response\nrecord IDs, review items, audit trail]
+    SUP --> LOG[OCI Logging]
